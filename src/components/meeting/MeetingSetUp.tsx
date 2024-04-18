@@ -1,13 +1,18 @@
 "use client"
-import { VideoPreview, useCall } from '@stream-io/video-react-sdk'
+import { DeviceSettings, VideoPreview, useCall } from '@stream-io/video-react-sdk'
 import React, { useEffect, useState } from 'react'
+import { Button } from '../ui/button'
 
-const MeetingSetUp = () => {
+interface PropsI{
+    setIsSetUpComplete: (isSetUpComplete:boolean) => void;
+}
+
+const MeetingSetUp = ({setIsSetUpComplete}:PropsI) => {
     const [isMicCamToggle, setIsMicCamToggle] = useState(false)
     const call = useCall();
 
-    if(!call) {
-        throw new Error ("Usecall must be used within StreamCall Component")
+    if (!call) {
+        throw new Error("Usecall must be used within StreamCall Component")
     }
 
 
@@ -28,6 +33,23 @@ const MeetingSetUp = () => {
                 SetUp
             </h1>
             <VideoPreview />
+            <div className='flex h-16 items-center justify-center gap-3'>
+                <label htmlFor="" className='flex items-center justify-center gap-2 font-medium'>
+                    <input type="checkbox"
+                        checked={isMicCamToggle}
+                        onChange={(e) => setIsMicCamToggle(e.target.checked)}
+                    />
+                    Join with mic and camera off
+                </label>
+                <DeviceSettings />
+            </div>
+            <Button className= 'rounded-md bg-green-500 px-4 py-2'
+            onClick={() =>{
+                call.join()
+                setIsSetUpComplete(true)
+            }} >
+                Join Meeting
+            </Button>
         </div>
     )
 }
