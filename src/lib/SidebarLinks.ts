@@ -29,3 +29,11 @@ export const sideBarLinks = [
         imgUrl: MdBroadcastOnPersonal
     },
 ]
+
+export const avatarImages = [
+    '/avatar-1.jpeg',
+    '/avatar-2.jpeg',
+    '/avatar-3.png',
+    '/avatar-4.png',
+    '/avatar-5.png',
+]
