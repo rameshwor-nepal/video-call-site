@@ -27,7 +27,7 @@ const MobileNavBar = () => {
                         {/* <Image src={''} alt='Logo' width={32} height={32} className='max-sm:size-10' /> */}
                         <p className='text-[26px] font-extrabold text-white'>Yoom</p>
                     </Link>
-                    <div className='flex h-[calc(100vh-72px)] flex-col justify-between overflow-y-auto'>
+                    <div className='flex h-[calc(100vh-72px)] text-white flex-col justify-between overflow-y-auto'>
                         <SheetClose asChild>
                             <section className='flex h-full flex-col gap-6 pt-16 text-white'>
                                 {sideBarLinks.map((link) => {
@@ -42,7 +42,7 @@ const MobileNavBar = () => {
                                                 })}
                                             >
                                                 <i className='text-lg'>{React.createElement(link.imgUrl)}</i>
-                                                <p className='text-lg  max-lg:hidden'>
+                                                <p className='text-lg'>
                                                     {link.label}
                                                 </p>
                                             </Link>

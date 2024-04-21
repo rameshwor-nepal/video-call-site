@@ -10,14 +10,16 @@ const NavBar = () => {
     <nav className='flex justify-between fixed z-50 w-full bg-dark-100 px-6 py-4 lg:px-10'>
       <Link href={'/'} className='flex items-center gap-1'>
         {/* <Image src={''} alt='Logo' width={32} height={32} className='max-sm:size-10' /> */}
-        <p className='text-[26px] font-extrabold text-white max-sm:hidden '>Yoom</p>
+        <p className='text-[26px] tracking-wider font-extrabold text-white max-sm:hidden '>MyMeet</p>
       </Link>
 
       <div className='flex justify-between gap-5'>
         <SignedIn>
           <UserButton />
         </SignedIn>
-        <MobileNavBar />
+        <div className='max-sm:block hidden'>
+          <MobileNavBar />
+        </div>
       </div>
     </nav>
   )
